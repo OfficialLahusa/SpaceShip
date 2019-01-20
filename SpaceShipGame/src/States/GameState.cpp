@@ -65,7 +65,7 @@ namespace sse
 
 		/* Player Setup */
 		playerSprites.loadFromFile("res/raumschiffe_spritesheet.png");
-		player = Player(0, 0);
+		player = Player(0, 0, sf::Vector2f(m_data->window.getSize().x / 2, m_data->window.getSize().y/2));
 		player.shape.setOrigin(64 * TILE_SCALING, 64 * TILE_SCALING);
 		player.shape.setTexture(&playerSprites);
 		player.shape.setTextureRect(getPlayerSprite(1, 1));
@@ -207,7 +207,7 @@ namespace sse
 	bool GameState::Update(float dt) {
 
 		/* Spawn Meteorites */
-		if (sse::random::randomInteger(0, 100) <= METEORITE_SPAWN_CHANCE_PERCENT) {
+		if (sse::random::randomReal<float>(0, 1) <= METEORITE_SPAWN_CHANCE) {
 			meteorites.push_back(basicMeteorite);
 			float spawnAngle = sse::random::randomReal<float>(0, 360);
 			sf::Vector2f spawnVec(cos(spawnAngle / 180.f * sse::math::PI), sin(spawnAngle / 180.f * sse::math::PI));

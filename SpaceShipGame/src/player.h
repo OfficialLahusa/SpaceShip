@@ -5,7 +5,6 @@
 class Player {
 private:
 	unsigned int m_skin;
-	unsigned int m_x, m_y;
 	unsigned int m_id;
 
 public:
@@ -22,18 +21,17 @@ public:
 
 	sf::RectangleShape shape;
 
-	Player(unsigned int newID = 0, unsigned int newSkin = 0) {
+	Player(unsigned int newID = 0, unsigned int newSkin = 0, sf::Vector2f position = sf::Vector2f(100.f, 100.f)) {
 
 		m_id = newID;
 		m_skin = newSkin;
 		shape.setSize(sf::Vector2f(128 * TILE_SCALING, 128 * TILE_SCALING));
-		shape.setPosition(128 * TILE_SCALING, 128 * TILE_SCALING);
+		shape.setPosition(position);
 		
 	}
 
 	void update() {
-		m_x = ((shape.getPosition().x - 16 * INFO_WIDTH * TILE_SCALING) + 6 * TILE_SCALING) / (16 * TILE_SCALING);
-		m_y = (shape.getPosition().y + 2 * TILE_SCALING) / (16 * TILE_SCALING);
+
 	}
 
 	void move(sf::Vector2f movement) {
@@ -49,10 +47,6 @@ public:
 		}
 	}
 
-	sf::Vector2i getTilePosition() const {
-		return sf::Vector2i(m_x, m_y);
-	}
-
 	unsigned int getSkin() const {
 		return m_skin;
 	}
@@ -63,12 +57,6 @@ public:
 
 	void setSkin(unsigned int newSkin = 0) {
 		m_skin = newSkin;
-	}
-
-	unsigned int setTilePosition(unsigned int tx, unsigned int ty) {
-		m_x = tx;
-		m_y = ty;
-		shape.setPosition((tx + INFO_WIDTH) * 16 * TILE_SCALING, ty * 16 * TILE_SCALING);
 	}
 
 };
