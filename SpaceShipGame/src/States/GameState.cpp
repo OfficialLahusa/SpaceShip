@@ -10,10 +10,6 @@ sf::IntRect getPlayerSprite(unsigned int speed, unsigned int shotstate) {
 /* Returns the skin name by ID */
 std::string getSkinName(unsigned int skin) {
 	switch (skin) {
-	case 0: return "Skullkid";
-	case 1: return "Mr. Talent";
-	case 2: return "Satoshi";
-	case 3: return "Wrath";
 	default: return "Unnamed Character";
 	}
 }
