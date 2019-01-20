@@ -27,12 +27,12 @@ namespace sse
 	public:
 		Game(const std::string& title, sf::VideoMode mode, const std::function<void(GameDataRef data)>& runState)
 		{
-			this->m_data->window.create(mode, title, sf::Style::Close);
+			this->m_data->window.create(mode, title, sf::Style::Fullscreen);
 			/*this->m_data->view = sf::View(sf::FloatRect(
 				0,
 				0,
-				1920,
-				1080)
+				mode.width,
+				mode.height)
 			);
 
 			this->m_data->window.setView(this->m_data->view);*/

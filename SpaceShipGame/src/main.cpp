@@ -8,6 +8,6 @@
 
 int main()
 {
-	sse::Game game("Bomberman - Recreated by Lasse Huber-Saffer", sf::VideoMode().getFullscreenModes()[0] , [](sse::GameDataRef data) { data->machine.AddState(sse::StateRef(new sse::GameState(data))); });
+	sse::Game game("Bomberman - Recreated by Lasse Huber-Saffer", sf::VideoMode().getDesktopMode() , [](sse::GameDataRef data) { data->machine.AddState(sse::StateRef(new sse::GameState(data))); });
 	return EXIT_SUCCESS;
 }

@@ -96,7 +96,7 @@ namespace sse
 		/* UI Elements */
 		font.loadFromFile("res/CarbonBlock.ttf");
 		xText.setFillColor(sf::Color::White);
-		xText.setPosition(20, 10);
+		xText.setPosition(20, 30);
 		xText.setCharacterSize(35);
 		xText.setFont(font);
 
@@ -339,8 +339,15 @@ namespace sse
 		}
 
 		/* Draw Text */
-		xText.setString("FPS: " + std::to_string((int)(1.f / dt)) + ", Shots: " + std::to_string(shots.size()) + ", Meteorites: " + std::to_string(meteorites.size()));
+		xText.setString(
+			"FPS: " + std::to_string((int)(1.f / dt))
+			+ ", X: "+ std::to_string((int)player.shape.getPosition().x) 
+			+ ", Y: " + std::to_string((int)player.shape.getPosition().y) 
+			+ ", Shots: " + std::to_string(shots.size()) 
+			+ ", Meteorites: " + std::to_string(meteorites.size())
+		);
 		m_data->window.draw(xText);
+
 
 		m_data->window.display();
 		return true;
